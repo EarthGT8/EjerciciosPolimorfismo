@@ -1,0 +1,21 @@
+@startuml
+
+abstract class Figura {
+    {abstract} + calcularArea() : double
+    + mostrarNombre() : void
+}
+
+class Rectangulo {
+    + Rectangulo(base : double, altura : double)
+    + calcularArea() : double
+}
+
+Figura <|-- Rectangulo
+
+note right of Rectangulo
+main():
+Rectangulo rectangulo = new Rectangulo(5, 3)
+rectangulo.calcularArea()
+end note
+
+@enduml

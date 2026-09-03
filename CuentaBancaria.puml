@@ -1,0 +1,34 @@
+@startuml CuentaBancaria
+
+class CuentaBancaria {
+    ' Atributos de instancia
+    - titular : String
+    - saldo : double
+    - id : int
+
+    ' Atributos estáticos
+    {static} - totalCuentas : int = 0
+    {static} - proxId : int = 1
+    {static} - cuentas : ArrayList<CuentaBancaria>
+
+    ' Constructor
+    + CuentaBancaria(titular : String, saldo : double)
+
+    ' Getters
+    + getTitular() : String
+    + getSaldo() : double
+    + getId() : int
+
+    ' Métodos estáticos
+    {static} + obtenerTotalCuentas() : int
+    {static} + obtenerProximoId() : int
+    {static} + reporteGlobal() : void
+
+    ' Método principal
+    {static} + main(args : String[]) : void
+}
+
+' La clase mantiene una colección de sus propias instancias
+CuentaBancaria "1" o-- "0..*" CuentaBancaria : cuentas
+
+@enduml
